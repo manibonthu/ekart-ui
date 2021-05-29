@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://ekart-backend-demo.herokuapp.com',
   loginUrl: '/login',
   stores: '/store',
   user: '/user',
