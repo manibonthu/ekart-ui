@@ -1,0 +1,40 @@
+<div fxLayout="column" class="product-container" fxLayoutGap="25px">
+  <div class="header" fxLayoutAlign="center center">
+    <span class="text-heading">Users</span>
+  </div>
+  <div fxLayoutAlign="start end" class="example-form">
+    <mat-card class="example-card" fxFlex="100">
+      <mat-card-header *ngIf="isAdmin">
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="addNewUser()"
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>add</mat-icon>User
+        </button>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div fxFlex="100" fxLayout="row" *ngIf="users && users.length > 0">
+          <app-table-widget
+            style="width: 100%"
+            [sourceData]="users"
+            *ngIf="users"
+            [headers]="headers"
+            (deleteEvent)="deleteUser($event)"
+            (editEvent)="editUser($event)"
+          ></app-table-widget>
+        </div>
+        <div *ngIf="!users || !users.length" fxLayoutAlign="center center">
+          <mat-icon aria-hidden="false" aria-label="Example home icon"
+            >error</mat-icon
+          >
+          No Users are Assosicated with your Account
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <br />
+</div>

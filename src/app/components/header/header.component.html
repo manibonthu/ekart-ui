@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>EKart</span>
+    <div fxFlex="90" fxLayout="row" fxLayoutAlign="end center">
+      <button
+        mat-button
+        routerLink="/home/user"
+        routerLinkActive="active"
+        *ngIf="isAdmin"
+      >
+        Users
+      </button>
+
+      <button mat-button routerLink="/home/store" routerLinkActive="active">
+        Stores
+      </button>
+
+      <button mat-button routerLink="/home/product" routerLinkActive="active">
+        Products
+      </button>
+
+      <button mat-button (click)="logout()">Logout</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

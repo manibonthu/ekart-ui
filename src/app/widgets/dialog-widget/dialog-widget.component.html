@@ -1,0 +1,12 @@
+<mat-dialog-content class="mat-typography">
+  <app-form
+    *ngIf="config"
+    [config]="config"
+    (submitted)="formSubmitted($event)"
+  >
+  </app-form>
+</mat-dialog-content>
+<!-- <mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions> -->

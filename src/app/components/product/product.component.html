@@ -1,0 +1,46 @@
+<div fxLayout="column" class="product-container" fxLayoutGap="25px">
+  <div class="header" fxLayoutAlign="center center">
+    <span class="text-heading">Products</span>
+  </div>
+  <div fxLayoutAlign="start end" class="example-form">
+    <mat-card class="example-card" fxFlex="100">
+      <mat-card-header *ngIf="isAdmin">
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="addNewProduct()"
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>add</mat-icon>Product
+        </button>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div
+          fxFlex="100"
+          fxLayout="row"
+          *ngIf="products && products.length > 0"
+        >
+          <app-table-widget
+            style="width: 100%"
+            [sourceData]="products"
+            [editAccess]="true"
+            [deletAccess]="isAdmin"
+            *ngIf="products"
+            [headers]="headers"
+            (deleteEvent)="deleteProduct($event)"
+            (editEvent)="editProduct($event)"
+          ></app-table-widget>
+        </div>
+      </mat-card-content>
+      <div *ngIf="!products || !products.length" fxLayoutAlign="center center">
+        <mat-icon aria-hidden="false" aria-label="Example home icon"
+          >error</mat-icon
+        >
+        No Products are Assosicated with your Account
+      </div>
+    </mat-card>
+  </div>
+
+  <br />
+</div>

@@ -1,0 +1,40 @@
+<div fxLayout="column" class="product-container" fxLayoutGap="25px">
+  <div class="header" fxLayoutAlign="center center">
+    <span class="text-heading">Stores</span>
+  </div>
+  <div fxLayoutAlign="start end" class="example-form">
+    <mat-card class="example-card" fxFlex="100">
+      <mat-card-header *ngIf="isAdmin">
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="addNewStore()"
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>add</mat-icon>Stores
+        </button>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div fxFlex="100" fxLayout="row" *ngIf="stores && stores.length > 0">
+          <app-table-widget
+            style="width: 100%"
+            [sourceData]="stores"
+            *ngIf="stores || stores.length > 0"
+            [headers]="headers"
+            (deleteEvent)="deleteStore($event)"
+            (editEvent)="editStore($event)"
+          ></app-table-widget>
+        </div>
+        <div *ngIf="!stores || !stores.length" fxLayoutAlign="center center">
+          <mat-icon aria-hidden="false" aria-label="Example home icon"
+            >error</mat-icon
+          >
+          No Stores are Assosicated with your Account
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <br />
+</div>
