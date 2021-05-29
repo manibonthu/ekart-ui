@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://ekart-backend-demo.herokuapp.com',
   loginUrl: '/login',
   stores: '/store',
   user: '/user',
